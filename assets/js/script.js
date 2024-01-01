@@ -92,3 +92,69 @@ function hideEndScreen() {
     endScreenDiv.classList.add('hide');
   };
 };
+
+// askQuestions() : call questions and check answers
+
+function askQuestions() {
+  let i = 0;
+  let questions = questionsArr;
+  questionTitle.textContent = questions[i].forAsk;
+
+  // trueButton Listener
+
+  trueButton.addEventListener('click', () => {
+    if (questions[i].forAnswer) {
+      if (i <= 3) {
+        i++;
+        questionTitle.textContent = questions[i].forAsk;
+      } else {
+        quizEnd();
+      };
+    } else {
+      if (i <= 3) {
+        i++;
+        questionTitle.textContent = questions[i].forAsk;
+        userTime -= 15;
+      } else {
+        quizEnd();
+      };
+    }
+  });
+
+  // falseButton Listener
+
+  falseButton.addEventListener('click', () => {
+    if (!questions[i].forAnswer) {
+      if (i <= 3) {
+        i++;
+        questionTitle.textContent = questions[i].forAsk;
+      } else {
+        quizEnd();
+      };
+    } else {
+      if (i <= 3) {
+        i++;
+        questionTitle.textContent = questions[i].forAsk;
+        userTime -= 15;
+      } else {
+        quizEnd();
+      };
+    };
+  });
+};
+
+// highScoresFun() : save the user score to local storage
+
+function highScoresFun() {
+  var user = initialsInput.value.trim();
+  if (user !== "") {
+    var highScores =
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
+    var newScore = {
+      score: userTime,
+      user: user
+    };
+    highScores.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highScores));
+  };
+};
