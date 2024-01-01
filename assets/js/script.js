@@ -43,3 +43,26 @@ var timer;
 var minTime = 0;
 var userTime = 60;
 var userScore = 0;
+
+// userTimeFun() : user remaining time
+
+function userTimeFun() {
+  timer = setInterval(function() {
+    userTime--;
+    timeSpan.textContent = userTime;
+    if (userTime <= 0) {
+      userTime = minTime;
+      timeSpan.textContent = userTime;
+      quizEnd();
+    }
+  }, 1000);
+  return timer;
+};
+
+
+// quizStart() : call the userTimeFun() & questionsDisplay() when the startButton is clicked
+
+function quizStart() {
+  startButton.addEventListener('click', userTimeFun);
+  startButton.addEventListener('click', questionsDisplay);
+}
