@@ -79,6 +79,7 @@ function quizEnd() {
 
 function questionsDisplay() {
   questionsDiv.classList.remove('hide');
+  startButton.classList.add('hide');
 
   askQuestions();
 };
