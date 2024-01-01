@@ -22,3 +22,24 @@ const questionsArr = [
     forAnswer: false
   }
 ];
+
+// Document Selectors
+
+const timeSpan = document.querySelector("#time");
+const startButton = document.querySelector("#start");
+const questionsDiv = document.querySelector("#questions");
+const questionTitle = document.querySelector("#question-title");
+const trueButton = document.querySelector("#true");
+const falseButton = document.querySelector("#false");
+const endScreenDiv = document.querySelector("#end-screen");
+const finalScore = document.querySelector("#final-score");
+const initialsInput = document.querySelector("#initials");
+const submitButton = document.querySelector("#submit");
+const feedbackDiv = document.querySelector("#feedback");
+
+// Global Variables
+
+var timer;
+var minTime = 0;
+var userTime = 60;
+var userScore = 0;
