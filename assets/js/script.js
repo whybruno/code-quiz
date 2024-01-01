@@ -59,10 +59,36 @@ function userTimeFun() {
   return timer;
 };
 
-
 // quizStart() : call the userTimeFun() & questionsDisplay() when the startButton is clicked
 
 function quizStart() {
   startButton.addEventListener('click', userTimeFun);
   startButton.addEventListener('click', questionsDisplay);
 }
+
+// quizEnd() : stop timer, shows endScreenDiv and hides questionDiv
+
+function quizEnd() {
+  clearInterval(timer);
+  finalScore.textContent = userTime;
+  endScreenDiv.classList.remove('hide');
+  questionsDiv.classList.add('hide');
+}
+
+// questionsDisplay() : show the first question 
+
+function questionsDisplay() {
+  questionsDiv.classList.remove('hide');
+
+  askQuestions();
+};
+
+// hideEndScreen() : hide the endScreenDiv
+
+function hideEndScreen() {
+  const checkHideClass = endScreenDiv.classList.contains('hide');
+
+  if (!checkHideClass) {
+    endScreenDiv.classList.add('hide');
+  };
+};
