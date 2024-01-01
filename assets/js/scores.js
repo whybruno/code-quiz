@@ -18,3 +18,16 @@ function highScoresDisplay() {
     olElement.appendChild(liElement);
   });
 };
+
+// clearHighscores() : clear scoreboard after clicking on clearButton
+
+function highScoresClear() {
+  window.localStorage.removeItem('highscores');
+  window.location.reload();
+};
+
+document.getElementById('clear').onclick = highScoresClear;
+
+// Global Function Caller
+  
+highScoresDisplay();
