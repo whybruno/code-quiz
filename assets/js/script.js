@@ -158,3 +158,28 @@ function highScoresFun() {
     window.localStorage.setItem("highscores", JSON.stringify(highScores));
   };
 };
+
+// pressToSave() : save the user score after pressing enter
+
+function pressToSave(event) {
+  if (event.key === "Enter") {
+    highScoresFun();
+    hideEndScreen();
+  };
+};
+
+initialsInput.onkeyup = pressToSave;
+
+// clickToSave() : save the user score after clicking submitButton
+
+function clickToSave() {
+  submitButton.addEventListener('click', () => {
+    highScoresFun();
+    hideEndScreen();
+  });
+};
+
+// Global Function Caller
+
+quizStart();
+clickToSave()
